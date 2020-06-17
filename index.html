@@ -7,7 +7,7 @@
              body {
                  margin: 0px;
                  padding: 0px;
-              
+                 background-color: rgb(216, 212, 212);
              }
 
              .title {
@@ -34,14 +34,50 @@
              .hide {
                  opacity: 0;
              }
+
+             .clickme {
+                 background-color: #595959;
+                 color: transparent;
+                 text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+                 -webkit-background-clip: text;
+                 -moz-background-clip: text;
+                 background-clip: text;
+
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: center;
+                 align-items: center;
+                 text-align: center;
+                 min-height: 100vh;
+                 font-size: 3em;
+                 font-weight: bold;
+
+             }
+
+             .footer {
+                 position: fixed;
+                 bottom: 0;
+                 background-color: lightgray;
+                 width: 100%;
+                 padding: 5px;
+                 font-weight: lighter;
+                 font-style: italic;
+                 font-size: 1em;
+                 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                 font-weight: bold;
+                 color: rgb(95, 93, 93);
+             }
          </style>
      </head>
 
      <body>
          
         <svg id="boom"></svg>
-        <div>
-            Mostafa
+        <div class="clickme">
+            Click any where \(^.^)/
+        </div>
+        <div class="footer">
+            By Mostafa ASHARF
         </div>
         
          <script>
@@ -53,8 +89,6 @@
                  const svg = document.getElementById('boom');
                  svg.setAttribute("width", window.innerWidth);
                  svg.setAttribute("height", window.innerHeight);
-                 console.log("width : " + svg.getAttribute("width"));
-                 console.log("height : " + svg.getAttribute("height"));
              }
 
 
@@ -81,7 +115,6 @@
              function cursorPosition(e) {
                  var x = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft) ? document.documentElement.scrollLeft : document.body.scrollLeft;
                  var y = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop) ? document.documentElement.scrollTop : document.body.scrollTop;
-                 //console.log("x:" + x + ",y:" + y);
                  
                  window.onmousedown = function() {
                     var radius = getRandomRadius();
@@ -125,7 +158,6 @@
             function getRandomRadius() {
                 var radius = 5;
                 radius += Math.random() * 10 + Math.random() * 10 * 5;
-                console.log("random radius = " + radius);
                 return Math.ceil(radius);
             }
 
@@ -212,8 +244,6 @@
             function animate(circle, axis) {
                 var x = axis.x;
                 var y = axis.y;
-
-                console.log(`x : ${x} - y : ${y}`);
 
                 if (x === 0) {
                     x = 1;
