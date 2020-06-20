@@ -67,16 +67,25 @@
                  font-weight: bold;
                  color: rgb(95, 93, 93);
              }
+          
+             .disableSelection {
+                user-select: none;
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Safari */
+                -khtml-user-select: none; /* Konqueror HTML */
+                -moz-user-select: none; /* Old versions of Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+             }
          </style>
      </head>
 
      <body>
          
         <svg id="boom"></svg>
-        <div class="clickme">
+        <div class="clickme disableSelection">
             Click anywhere \(^.^)/
         </div>
-        <div class="footer">
+        <div class="footer disableSelection">
             By Mostafa ASHARF
         </div>
         
