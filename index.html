@@ -297,6 +297,11 @@
                         fill: 'forwards',
                         easing: 'ease-in'
                     });
+
+                    //remove the animated boom circles, so the dom still clean :)
+                    a.onfinish = function() {
+                        document.getElementById('boom').removeChild(circle);
+                    }
             }
 
             
