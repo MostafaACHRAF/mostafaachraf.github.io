@@ -83,7 +83,7 @@
          <script>
 
              /**
-             * Init function
+             * Init function SuperStafa, SuperTofi_20, SSuperTofi_20 mostafa123 mostafa1234 mostafa SuperTofi
              */
              function init() {
                  const svg = document.getElementById('boom');
@@ -258,16 +258,47 @@
                     {transform: `translate(${x}px, ${y}px)`}
                 ];
 
-                circle.animate(keyframes, {
+                var b = circle.animate(keyframes, {
                     duration: 500,
                     fill: 'forwards',
                     easing: 'ease'
                 });
+
+                b.onfinish = function() {
+                    killAllSideEffects({circle, x, y});
+                }
             }
+
+
+            /**
+            * Make the small generated circles fall like rain
+            */
+            function killAllSideEffects(obj) {
+                    var circle = obj.circle;
+                    var x = obj.x;
+                    var y = window.innerHeight;
+
+                    var keyframes = [
+                        {transform: `translate(${x}px, ${obj.y}px)`},
+                        {transform: `translate(${x}px, ${y}px)`}
+                    ];
+
+                    var a = circle.animate(keyframes, {
+                        duration: 2500,
+                        fill: 'forwards',
+                        easing: 'ease-in'
+                    });
+            }
+
+            
             
 
              window.onload = init;
              document.onmousemove = cursorPosition;
+
+             document.onanimationend = function () {
+                console.log("animation ended");
+             }
              
              
 
